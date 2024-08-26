@@ -1,70 +1,78 @@
-# Getting Started with Create React App!
+# Robotic Arm Control Web GUI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This web application allows real-time wireless control of a 6 Degree of Freedom (DOF) Robotic Arm. It is connected via a rosbridge server to facilitate seamless communication with the robotic arm.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+Before using this application, ensure you have the following prerequisites:
 
-### `npm start`
+- **ROS (Robot Operating System):** Install ROS on the system that controls the robotic arm. You can find installation instructions on the [ROS official website](http://www.ros.org/).
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **rosbridge_suite:** Install the `rosbridge_suite` package to enable communication between ROS and the web GUI. You can install it by following the instructions given below or in the [rosbridge_suite GitHub repository](https://github.com/RobotWebTools/rosbridge_suite).
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
+## Installing rosbridge_suite
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To install the `rosbridge_suite`, follow these commands:
 
-### `npm run build`
+```bash
+# Install rosbridge_suite using apt
+sudo apt-get install ros-<distro>-rosbridge-suite
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Replace <distro> with your ROS distribution (e.g., kinetic, melodic).
+```
+## Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone this repository to your catkin workspace.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
+2. Source your ROS workspace
+    ```bash
+    source /path/to/your/ros/workspace/devel/setup.bash
+    ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Open the terminal and start roscore using the following command
+   ```bash
+   roscore
+   ```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Run the ROSBridge server using the following command:
+    ```bash
+    roslaunch rosbridge_server rosbridge_websocket.launch
+    ```
+    
+4. Launch the moveit.launch file using the following command:
+   ```bash
+   roslaunch ajgar_core ajgar_moveit.launch
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. Run the new_ik_solver.py using the following command:
+   ```bash
+   rosrun ajgar_core new_ik_solver.py
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. Open the `control_arm_GUI.html` file in your web browser.
 
-## Learn More
+7. Use the provided sliders to control the positions of the six joints of the robotic arm.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Roslibjs
+roslibjs is the standard ROS JavaScript library designed for interacting with ROS (Robot Operating System) from a web browser. 
+It utilizes WebSockets to establish a connection with rosbridge, providing a communication channel for ROS functionality between the browser and the ROS environment. 
+This library facilitates tasks such as subscribing to ROS topics, publishing messages, making service calls, and interacting with the ROS Parameter Server directly from a web page
+You can learn more about it from [roslibjs- ROS Wiki](http://wiki.ros.org/roslibjs)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Disclaimer
 
-### Analyzing the Bundle Size
+**Attention: This web GUI is developed by A.T.O.M Robotic Labs for educational and testing purposes. Please note the following:**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. **Safety First:** Ensure proper safety measures are in place when operating the robotic arm. The developers emphasize the importance of adhering to safety protocols and guidelines during the use of this application.
 
-### Making a Progressive Web App
+2. **Educational Intent:** The web GUI is intended for educational purposes, providing a platform for learning and experimentation with robotic arm control.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+3. **Use Responsibly:** Users are expected to use this application responsibly and ethically. The developers disclaim any responsibility for any misuse or accidents caused by the use of this application.
 
-### Advanced Configuration
+4. **No Warranty:** This software is provided "as is" without any warranty or guarantee. The developers make no representations or warranties of any kind concerning the suitability, reliability, or accuracy of the software.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+By using this web GUI, you acknowledge that you have read, understood, and agreed to the terms mentioned above. If you do not agree with these terms, refrain from using the application.
