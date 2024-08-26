@@ -1,0 +1,221 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 20px;
+    transition: background-color 0.5s, color 0.5s;
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3498db;
+    padding: 10px;
+    border-bottom: 2px solid #2980b9; 
+    box-shadow: 0 4px 2px -2px gray;
+}
+
+h1 {
+    color: #ecf0f1;
+    border-radius: 5px;
+    margin: 0;
+    font-size: 1.8em;
+}
+
+.theme-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+.theme-buttons button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    border: none;
+    font-size: 1.2em;
+}
+
+.theme-buttons button:hover {
+    transform: scale(1.1);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    background-color: #ecf0f1;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    color: #333;
+    transition: box-shadow 0.3s;
+}
+
+.joint-slider {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-bottom: 5px;
+    color: #555;
+    display: block;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 15px;
+    background-color: #ddd;
+    border-radius: 5px;
+    outline: none;
+    margin: 15px 0;
+    transition: background-color 0.3s;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background-color: #3498db;
+    border-radius: 50%;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    margin-top: -7px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="range"]:hover::-webkit-slider-thumb {
+    background-color: #2980b9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+input[type="range"]:focus::-webkit-slider-thumb {
+    background-color: #2980b9;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.degrees-radians {
+    margin-top: 10px;
+    color: #777;
+    font-size: 0.8em;
+}
+
+body.dark-theme {
+    background-color: #2c3e50;
+    color: #fff;
+}
+
+.dark-theme h1 {
+    color: #fff;
+}
+
+.dark-theme form,
+.dark-theme .degrees-radians,
+.dark-theme .camera-feed h1 {
+    color: #fff;
+}
+
+.dark-theme input[type="range"],
+.dark-theme label {
+    color: #fff !important;
+}
+
+.dark-theme input[type="range"]::-webkit-slider-thumb {
+    background-color: #fff !important;
+}
+
+.dark-theme input[type="range"]::-moz-range-thumb {
+    background-color: #fff !important;
+}
+
+.dark-theme input[type="range"]::-ms-thumb {
+    background-color: #fff !important;
+}
+
+.dark-theme .camera-feed img {
+    filter: brightness(100%);
+}
+
+footer {
+    margin-top: 20px;
+    color: #51abe7;
+    border-top: 2px solid #ddd;
+    padding-top: 10px;
+    position: relative;
+    font-size: 0.9em;
+}
+
+footer img {
+    width: 40px;
+    margin-left: 5px;
+    vertical-align: middle;
+}
+
+footer a {
+    color: #3498db;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    padding: 20px;
+}
+
+.control-panel,
+.camera-feed {
+    width: 48%;
+    transition: transform 0.3s;
+}
+
+.control-panel:hover,
+.camera-feed:hover {
+    transform: scale(1.02);
+}
+
+.camera-feed h1 {
+    color: #777;
+}
+
+.camera-feed img {
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.button-group {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.button-group button {
+    padding: 10px 20px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
