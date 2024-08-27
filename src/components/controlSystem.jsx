@@ -1,6 +1,8 @@
 import React from "react";
 import jointData from "./jointData";
 import Joint from "./joint";
+import CameraFeed from "./camerafeed";
+import {resetSliders,randomizeSliders} from "./utilities"; 
 
 function jointFunction(jointData){
     return(
@@ -30,16 +32,12 @@ function ControlSystem(){
             {jointData.map(jointFunction)}
 
                 <div className="button-group">
-                    <button type="button" onClick="resetSliders()">Reset</button>
-                    <button type="button" onClick="randomizeSliders()">Randomize</button>
+                    <button type="button" onClick={resetSliders}>Reset</button>
+                    <button type="button" onClick={randomizeSliders}>Randomize</button>
                 </div>
             </form>
         </div>
-
-        <div className="camera-feed">
-            <h1 style={{marginTop: "20px", marginBottom: "20px"}}>Camera Feed</h1>
-            <img id="image" src="" width="90%" height="auto" />
-        </div>
+        <CameraFeed />
     </div>
     );
 }
