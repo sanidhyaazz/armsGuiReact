@@ -1,4 +1,5 @@
 import ROSLIB from 'roslib';
+// import 
 
 const ros = new ROSLIB.Ros({
     url: 'ws://localhost:9090'
@@ -55,6 +56,7 @@ let publishTimeout;
 let lastPublishedTime = 0;
 
 export function  updateSliderValue(sliderId, valueId, radiansId) {
+    // console.log(sliderId)
     const slider = document.getElementById(sliderId);
     const valueLabel = document.getElementById(valueId);
     const radiansLabel = document.getElementById(radiansId);

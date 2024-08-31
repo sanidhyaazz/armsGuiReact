@@ -12,10 +12,10 @@ function jointFunction(jointData){
         label={jointData.label}
         inputMin={jointData.inputMin}
         inputMax={jointData.inputMax}
-        inputStep={jointData.InputStep}
+        inputStep={jointData.inputStep}
         inputValue={jointData.inputValue}
         onInput={jointData.onInput}
-        spanId={jointData.spanId}
+        spanId={jointData.spanId}   
         divId={jointData.divId}
         span={jointData.span}
         rad={jointData.rad}
